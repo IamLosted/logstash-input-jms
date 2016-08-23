@@ -112,7 +112,9 @@ class LogStash::Inputs::Jms < LogStash::Inputs::Threadable
       @jms_config = {
         :require_jars => @require_jars,
         :jndi_name => @jndi_name,
-        :jndi_context => @jndi_context}
+        :jndi_context => @jndi_context,
+        :username => @username, # tibco ems expects username and password on Connection creation
+        :password => @password}
 
     elsif @factory
       @jms_config = {
